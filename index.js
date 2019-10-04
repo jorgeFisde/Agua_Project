@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: true }))
 app.post('/', (req, res, next) => {
     // Aqui es el POST, donde resivirre tu fakin JSON a este link: http://localhost/
     res.send("puto")
-    console.log(req.body.values);
+    console.log('alguien me hizi post');
     
 })
 app.get('/', (req, res) => {
