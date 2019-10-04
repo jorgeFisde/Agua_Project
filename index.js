@@ -9,7 +9,7 @@ app.post('/', (req, res, next) => {
     res.send('Todo bien, todo correcto, y yo que me alegro')
 })
 app.get('/', (req, res) => {
-    // Esto es lo que te enviare si me haces una peticion GET gei
+    // Esto es lo que te enviare si me haces una peticion GET gei!
     res.send('enviame JSON hijo de perra')
 })
 
