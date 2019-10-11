@@ -38,7 +38,8 @@ app.post('/registrarse', (req, res) => {
     connection.query(sql,[echo.nombre,echo.apellido,echo.fecha_nacimiento,echo.correo,echo.contraseña],(err, rows)=>{
         if (err) {
             console.log(err.sqlMessage);
-            
+            res.send(err.sqlMessage)
+            return
         }else{
             res.send(rows)
         }
@@ -54,7 +55,8 @@ app.post('/crearTinaco', (req, res) => {
     connection.query(sql,[echo.id,echo.nombre],(err, rows)=>{
         if (err) {
             console.log(err.sqlMessage);
-            
+            res.send(sqlMessage)
+            return
         }else{
             res.json(rows)
         }
@@ -70,7 +72,8 @@ app.post('/sendDatos', (req, res) => {
     connection.query(sql,[echo.porcentaje,echo.id_tinaco, echo.id_usuario],(err, rows)=>{
         if (err) {
             console.log(err.sqlMessage);
-            
+            res.send(err.sqlMessage)
+            return
         }else{
             res.send(rows)
         }
