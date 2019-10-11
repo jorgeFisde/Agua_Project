@@ -41,7 +41,7 @@ app.post('/registrarse', (req, res) => {
             res.send(err.sqlMessage)
             return
         }else{
-            res.send(rows)
+            res.send(rows[0])
         }
     })
 })
