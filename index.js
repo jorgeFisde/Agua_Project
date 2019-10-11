@@ -75,7 +75,7 @@ app.post('/sendDatos', (req, res) => {
             res.send(err.sqlMessage)
             return
         }else{
-            res.send(rows)
+            res.send('datos mandados')
         }
     })
 })
