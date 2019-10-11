@@ -69,7 +69,7 @@ app.post('/sendDatos', (req, res) => {
     INSERT INTO datos (porcentaje,id_tinaco ,id_usuario)
     VALUES (?,?,?)
     `
-    connection.query(sql,[echo.porcentaje,echo.id_tinaco, echo.id_usuario],(err, rows)=>{
+    connection.query(sql,[echo.porcentaje,echo.id_tinaco, 1],(err, rows)=>{
         if (err) {
             console.log(err.sqlMessage);
             res.send(err.sqlMessage)
