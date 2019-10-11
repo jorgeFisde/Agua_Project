@@ -64,7 +64,7 @@ app.post('/sendDatos', (req, res) => {
     // Esto es lo que te enviare si me haces una peticion GET gei!
     const echo = req.body
     const sql = `
-    INSERT INTO datos (porcentaje,id_tinaco ,id_usuario ,)
+    INSERT INTO datos (porcentaje,id_tinaco ,id_usuario)
     VALUES (?,?,?)
     `
     connection.query(sql,[echo.porcentaje,echo.id_tinaco, echo.id_usuario],(err, result)=>{
