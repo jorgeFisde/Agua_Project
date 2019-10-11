@@ -4,10 +4,11 @@ const app = express()
 
 const connection = mysql.createConnection(
     {
-        host: "localhost",
-        user: "root",
-        password: "toor",
-        database: "project_a"
+        host: "database-1.c4xpddivvqgu.us-east-2.rds.amazonaws.com",
+        port: "3306",
+        user: "admin", 
+        password: "kokielfd",
+        database: "Banco"
     }
 )
 
