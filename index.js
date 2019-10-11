@@ -35,12 +35,12 @@ app.post('/registrarse', (req, res) => {
     // Esto es lo que te enviare si me haces una peticion GET gei!
     const echo = req.body
     const sql = `INSERT INTO usuario (nombre,apellido,fecha_nacimiento,correo, contraseña) VALUES (?,?,?,?,?)`
-    connection.query(sql,[echo.nombre,echo.apellido,echo.fecha_nacimiento,echo.correo,echo.contraseña],(err, data)=>{
+    connection.query(sql,[echo.nombre,echo.apellido,echo.fecha_nacimiento,echo.correo,echo.contraseña],(err, rows)=>{
         if (err) {
             console.log(err.sqlMessage);
             
         }else{
-            res.send(data)
+            res.send(rows)
         }
     })
 })
@@ -51,12 +51,12 @@ app.post('/crearTinaco', (req, res) => {
     INSERT INTO tinaco (id,nombre)
     VALUES (?,?)
     `
-    connection.query(sql,[echo.id,echo.nombre],(err, result)=>{
+    connection.query(sql,[echo.id,echo.nombre],(err, rows)=>{
         if (err) {
             console.log(err.sqlMessage);
             
         }else{
-            res.json(result)
+            res.json(rows)
         }
     })
 })
@@ -67,12 +67,12 @@ app.post('/sendDatos', (req, res) => {
     INSERT INTO datos (porcentaje,id_tinaco ,id_usuario)
     VALUES (?,?,?)
     `
-    connection.query(sql,[echo.porcentaje,echo.id_tinaco, echo.id_usuario],(err, result)=>{
+    connection.query(sql,[echo.porcentaje,echo.id_tinaco, echo.id_usuario],(err, rows)=>{
         if (err) {
             console.log(err.sqlMessage);
             
         }else{
-            res.send(result)
+            res.send(rows)
         }
     })
 })
