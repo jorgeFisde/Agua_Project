@@ -30,7 +30,7 @@ router.post('/iskeyOpen',(req,res)=>{
             res.send('Ups! hubo un error.')
             return
         }else{
-            if (results[0].abierto === true) {
+            if (results[0].abierto === 1) {
                 res.send('abierta')
                 
             }else  {
