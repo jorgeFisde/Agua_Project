@@ -28,6 +28,7 @@ router.post('/iskeyOpen',(req,res)=>{
         if (err) {
             console.log(err.sqlMessage)
             res.send('Ups! hubo un error.')
+            return
         }else{
             if (results[0].abierto === true) {
                 res.send('abierta')
