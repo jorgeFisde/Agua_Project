@@ -71,6 +71,9 @@ app.post('/sendDatos', (req, res) => {
     `
     connection.query(sql,[echo.porcentaje,echo.id_tinaco, 1],(err, rows)=>{
         if (err) {
+            console.log('**** AÑADIENDO DATOS AL SERVIDOR');
+            console.log(echo.porcentaje + ' ' + echo.id_tinaco);
+            
             console.log(err.sqlMessage);
             res.send(err.sqlMessage)
             return
