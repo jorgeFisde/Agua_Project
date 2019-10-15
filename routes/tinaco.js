@@ -32,10 +32,10 @@ router.post('/iskeyOpen',(req,res)=>{
         }else{
             if (results[0].abierto === true) {
                 res.send('abierta')
-                return
-            }else if (results[0].abierto === false) {
+                
+            }else  {
                 res.send('cerrada')
-                return
+                
             }
         }
     })
