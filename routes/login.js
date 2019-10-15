@@ -21,3 +21,5 @@ router.post('/login', (req, res) => {
         res.send('Email o contraseña incorrectos')
     }
 })
+
+module.exports = router
