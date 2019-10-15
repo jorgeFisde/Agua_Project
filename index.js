@@ -80,7 +80,7 @@ app.post('/sendDatos', (req, res) => {
         }else{
             res.send('datos mandados')
             console.log('**** AÑADIENDO DATOS AL SERVIDOR');
-            console.log(porcentaje + ' ' + id_tinaco);
+            console.log(porcentaje + ' ' + tinaco);
         }
     })
 })
