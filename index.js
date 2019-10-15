@@ -64,22 +64,23 @@ app.post('/crearTinaco', (req, res) => {
 })
 app.post('/sendDatos', (req, res) => {
     // Esto es lo que te enviare si me haces una peticion GET gei!
-    const echo = req.body
+    const porcentaje = req.body.porcentaje
+    const tinaco = req.body.id_tinaco
     const sql = `
     INSERT INTO datos (porcentaje,id_tinaco ,id_usuario)
     VALUES (?,?,?)
     `
-    connection.query(sql,[echo.porcentaje,echo.id_tinaco, 1],(err, rows)=>{
+    connection.query(sql,[porcentaje,tinaco, 1],(err, rows)=>{
         if (err) {
             
-            
+        
             console.log(err.sqlMessage);
             res.send(err.sqlMessage)
             return
         }else{
             res.send('datos mandados')
             console.log('**** AÑADIENDO DATOS AL SERVIDOR');
-            console.log(echo.porcentaje + ' ' + echo.id_tinaco);
+            console.log(porcentaje + ' ' + id_tinaco);
         }
     })
 })
