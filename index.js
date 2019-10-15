@@ -4,10 +4,10 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use(require('./routes/login'))
-app.use(require('./routes/register'))
-app.use(require('./routes/sendDatos'))
-app.use(require('./routes/tinaco'))
+app.use('/api',require('./routes/login'))
+app.use('/api',require('./routes/register'))
+app.use('/api',require('./routes/sendDatos'))
+app.use('/api',require('./routes/tinaco'))
 
 app.listen('3000', () => {
     console.log('Servidor en puerto: 3000');
