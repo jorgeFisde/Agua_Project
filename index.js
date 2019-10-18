@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/api',require('./routes/login').router)
 app.use('/api',require('./routes/register'))
-app.use('/api',require('./routes/sendDatos'))
+app.use('/api',require('./routes/Data'))
 app.use('/api',require('./routes/tinaco'))
 
 app.listen('3000', () => {

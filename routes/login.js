@@ -6,7 +6,7 @@ const connection = require('../service/dataBase')
 router.post('/login', (req, res) => {
     var emp = req.body
     var sql = `
-    SELECT * FROM usuario WHERE email = ? AND contraseña = ?
+    SELECT id, nombre, apellido,fecha_nacimiento, email FROM usuario WHERE email = ? AND contraseña = ?
     `
     if (emp.email && emp.contraseña) {
         connection.query(sql, [emp.email, emp.contraseña], (err, rows) => {
