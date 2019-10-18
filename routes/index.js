@@ -27,3 +27,4 @@ router.get('/home',user.verificacionToken,(req,res,next)=>{
         }
     })
 })
+module.exports = router
