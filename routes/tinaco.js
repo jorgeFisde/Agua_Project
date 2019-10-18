@@ -3,12 +3,12 @@ const router = require('express').Router()
 const connection = require('../service/dataBase')
 
 router.post('/crearTinaco', (req, res) => {
-    const echo = req.body
+    const emp = req.body
     const sql = `
-    INSERT INTO tinaco (id,nombre)
+    INSERT INTO tinaco (id,altura,nombre)
     VALUES (?,?)
     `
-    connection.query(sql,[echo.id,echo.nombre],(err, rows)=>{
+    connection.query(sql,[emp.id,emp.altura,emp.nombre],(err, rows)=>{
         if (err) {
             console.log(err.sqlMessage);
             res.send(sqlMessage)
