@@ -7,12 +7,11 @@ const user = require('./login')
 router.post('/historial',(req, res) => {
     var porcentaje = req.body.porcentaje
     var tinaco = req.body.id_tinaco
-    var idUsuario = req.body.idUsuario
     const sql = `
     INSERT INTO historial (porcentaje,id_tinaco, now() ,id_usuario)
     VALUES (?,?,?)
     `
-    connection.query(sql, [porcentaje, tinaco, idUsuario], (err, rows) => {
+    connection.query(sql, [porcentaje, tinaco, 1], (err, rows) => {
         if (err) {
             console.log(err.sqlMessage);
             res.send(err.sqlMessage)
@@ -51,7 +50,7 @@ router.post('/updateData', (req, res) => {
     var sql = `
     UPDATE datos SET porcentaje = ?, id_usuario = ? WHERE id_tinaco = ?
     `
-    connection.query(sql, [emp.porcentaje, emp.id_usuario, emp.id_tinaco], (err, result) => {
+    connection.query(sql, [emp.porcentaje, 1, emp.id_tinaco], (err, result) => {
         if (err) {
             console.log(err.sqlMessage)
             res.send('Ups! ha ocurrido un error')
