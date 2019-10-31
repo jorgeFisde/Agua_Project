@@ -5,23 +5,67 @@ const connection = require('../service/dataBase')
 const user = require('./login')
 
 router.post('/historial',(req, res) => {
-    var porcentaje = req.body.porcentaje
+    var distancia = req.body.distancia
     var tinaco = req.body.id_tinaco
+    var porcentaje = 100 - (((distancia-2.5))/12)*100
     const sql = `
     INSERT INTO historial (porcentaje,id_tinaco, now() ,id_usuario)
     VALUES (?,?,?)
     `
-    connection.query(sql, [porcentaje, tinaco, 1], (err, rows) => {
-        if (err) {
-            console.log(err.sqlMessage);
-            res.send(err.sqlMessage)
-            return
-        } else {
-            res.send('datos mandados')
-            console.log('**** AÑADIENDO DATOS AL HISTORIAL EN EL SERVIDOR ****');
-            console.log(porcentaje + ' ' + tinaco);
-        }
-    })
+if(distancia < 2.5){
+
+  console.log("100%");
+  //lcd.setCursor(0,1);
+  //lcd.print("100%");
+  connection.query(sql, [porcentaje, tinaco, 1], (err, rows) => {
+    if (err) {
+        console.log(err.sqlMessage);
+        res.send(err.sqlMessage)
+        return
+    } else {
+        res.send('datos mandados')
+        console.log('**** AÑADIENDO DATOS AL HISTORIAL EN EL SERVIDOR ****');
+        console.log(porcentaje + ' ' + tinaco);
+    }
+})
+  
+}else if (distancia > altura){
+  
+  console.log("0%");
+  //lcd.setCursor(0,1);
+  //lcd.print("0%");
+  connection.query(sql, [porcentaje, tinaco, 1], (err, rows) => {
+    if (err) {
+        console.log(err.sqlMessage);
+        res.send(err.sqlMessage)
+        return
+    } else {
+        res.send('datos mandados')
+        console.log('**** AÑADIENDO DATOS AL HISTORIAL EN EL SERVIDOR ****');
+        console.log(porcentaje + ' ' + tinaco);
+    }
+})
+}else{
+
+   console.log(porcentaje);
+   console.log("%");
+   /*lcd.setCursor(0,1);
+   lcd.print(porcentaje);
+   lcd.print("%");*/
+   connection.query(sql, [porcentaje, tinaco, 1], (err, rows) => {
+    if (err) {
+        console.log(err.sqlMessage);
+        res.send(err.sqlMessage)
+        return
+    } else {
+        res.send('datos mandados')
+        console.log('**** AÑADIENDO DATOS AL HISTORIAL EN EL SERVIDOR ****');
+        console.log(porcentaje + ' ' + tinaco);
+    }
+})
+   
+}
+    
 })
 
 router.get('/historial',user.verificacionToken,(req,res,next)=>{
