@@ -96,9 +96,9 @@ router.post('/updateData', (req, res) => {
     `
     console.log(emp.distancia);
     
-    var porcentaje = 100 - ((( parseFloat(emp.distancia) - 2.5)) / 12) * 100;
+    var porcentaje = 100 - ((( Number(emp.distancia) - 2.5)) / 12) * 100;
 
-    if (parseFloat(emp.distancia) < 2.5) {
+    if (Number(emp.distancia) < 2.5) {
         connection.query(sql, [porcentaje, 1, emp.id_tinaco], (err, result) => {
             if (err) {
                 console.log(err.sqlMessage)
@@ -113,7 +113,7 @@ router.post('/updateData', (req, res) => {
         //lcd.setCursor(0,1);
         //lcd.print("100%");
 
-    } else if (parseFloat(emp.distancia) > 14) {
+    } else if (Number(emp.distancia) > 14) {
         connection.query(sql, [porcentaje, 1, emp.id_tinaco], (err, result) => {
             if (err) {
                 console.log(err.sqlMessage)
