@@ -114,7 +114,7 @@ router.post('/updateData', (req, res) => {
         //lcd.print("100%");
 
     } else if (Number(emp.distancia) > 14) {
-        connection.query(sql, [porcentaje, 1, emp.id_tinaco], (err, result) => {
+        connection.query(sql, [0, 1, emp.id_tinaco], (err, result) => {
             if (err) {
                 console.log(err.sqlMessage)
                 res.send('Ups! ha ocurrido un error')
