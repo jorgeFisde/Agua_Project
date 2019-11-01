@@ -94,6 +94,8 @@ router.post('/updateData', (req, res) => {
     var sql = `
     UPDATE datos SET porcentaje = ?, id_usuario = ? WHERE id_tinaco = ?
     `
+    console.log(emp.distancia);
+    
     var porcentaje = 100 - ((( parseFloat(emp.distancia) - 2.5)) / 12) * 100;
 
     if (distancia < 2.5) {
