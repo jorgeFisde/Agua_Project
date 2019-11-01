@@ -7,7 +7,7 @@ const user = require('./login')
 router.post('/historial', (req, res) => {
     var distancia = req.body.distancia
     var tinaco = req.body.id_tinaco
-    var porcentaje = 100 - (((distancia - 2.5)) / 12) * 100
+    var porcentaje = 100 - (((parseFloat(distancia) - 2.5)) / 12) * 100
     const sql = `
     INSERT INTO historial (porcentaje,id_tinaco, now() ,id_usuario)
     VALUES (?,?,?)
@@ -94,7 +94,7 @@ router.post('/updateData', (req, res) => {
     var sql = `
     UPDATE datos SET porcentaje = ?, id_usuario = ? WHERE id_tinaco = ?
     `
-    var porcentaje = 100 - (((emp.distancia - 2.5)) / 12) * 100;
+    var porcentaje = 100 - ((( parseFloat(emp.distancia) - 2.5)) / 12) * 100;
 
     if (distancia < 2.5) {
         connection.query(sql, [porcentaje, 1, emp.id_tinaco], (err, result) => {
