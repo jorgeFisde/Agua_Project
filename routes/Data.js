@@ -29,7 +29,7 @@ router.post('/historial', (req, res) => {
             }
         })
 
-    } else if (distancia > altura) {
+    } else if (distancia > 14) {
 
         console.log("0%");
         //lcd.setCursor(0,1);
@@ -111,7 +111,7 @@ router.post('/updateData', (req, res) => {
         //lcd.setCursor(0,1);
         //lcd.print("100%");
 
-    } else if (distancia > altura) {
+    } else if (distancia > 14) {
         connection.query(sql, [porcentaje, 1, emp.id_tinaco], (err, result) => {
             if (err) {
                 console.log(err.sqlMessage)
