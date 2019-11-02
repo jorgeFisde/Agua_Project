@@ -20,12 +20,12 @@ router.post('/login', (req, res) => {
                     })
                 })
             } else {
-                console.log(err.sqlMessage);
-                res.send('Ups! algo salio mal, intentalo de nuevo mas tarde')
+                console.log("algo salio mal");
+                res.send('Email o contraseña incorrectos')
             }
         })
     } else {
-        res.send('Email o contraseña incorrectos')
+        res.send('Llena todos los espacios')
     }
 })
 
