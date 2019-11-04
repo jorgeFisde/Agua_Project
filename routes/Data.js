@@ -70,14 +70,14 @@ router.post('/historial', (req, res) => {
 
 router.get('/historial', user.verificacionToken, (req, res, next) => {
     var sql = `
-        SELECT * FROM historial WHERE id_usuario = ?
+        SELECT * FROM historial WHERE (id_usuario = ?) AND fecha BETWEEN ? AND ?
     `
     jwt.verify(req.token, 'my_secret_key', (err, data) => {
         if (err) {
             res.send('Ups!, hubo un error a recibir tus datos')
             console.log(err)
         } else {
-            connection.query(sql, [data.usuario.id], (err, rows) => {
+            connection.query(sql, [data.usuario.id,req.body.fecha1,req.body.fecha2], (err, rows) => {
                 if (err) {
                     res.send('Ups!, hubo un error en la base de datos')
                     console.log(err.sqlMessage)
