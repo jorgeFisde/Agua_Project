@@ -68,7 +68,7 @@ router.post('/historial', (req, res) => {
 
 })
 
-router.get('/historial', user.verificacionToken, (req, res, next) => {
+router.post('/obtenerHistorial', user.verificacionToken, (req, res, next) => {
     var sql = `
         SELECT * FROM historial WHERE (id_usuario = ?) AND fecha BETWEEN ? AND ?
     `
