@@ -70,7 +70,7 @@ router.post('/historial', (req, res) => {
 
 router.get('/historial', user.verificacionToken, (req, res, next) => {
     var sql = `
-        SELECT * FROM historial WHERE id_usuario = ?
+        SELECT * FROM historial WHERE id_usuario = ? ORDER BY fecha DESC
     `
     jwt.verify(req.token, 'my_secret_key', (err, data) => {
         if (err) {
