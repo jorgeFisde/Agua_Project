@@ -8,7 +8,6 @@ app.use('/api',require('./routes/login').router)
 app.use('/api',require('./routes/register'))
 app.use('/api',require('./routes/Data'))
 app.use('/api',require('./routes/tinaco'))
-app.use('/api',require('./routes/index'))
 app.use('/api',require('./routes/home'))
 
 app.listen('3000', () => {
